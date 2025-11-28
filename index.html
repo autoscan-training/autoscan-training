@@ -28,9 +28,20 @@
     background:
         radial-gradient(circle at top, rgba(10,10,40,0.35) 0, rgba(5,5,9,0.55) 55%),
         url("img/bg-autoscan.jpg") center / cover no-repeat;
-    background-attachment: fixed;
     color: var(--text-main);
     line-height: 1.6;
+}
+
+/* Mobile (утас/жижиг дэлгэц) дээр background-ийг зөв харуулах */
+@media (max-width: 768px) {
+    body {
+        background-size: cover !important;
+        background-position: center top !important;
+        background-attachment: scroll !important;
+        background-repeat: no-repeat !important;
+    }
+}
+
 
 }
 
@@ -852,6 +863,7 @@
 </footer>
 </body>
 </html>
+
 
 
 
