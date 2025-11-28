@@ -32,13 +32,14 @@
     line-height: 1.6;
 }
 
-/* Mobile (утас/жижиг дэлгэц) дээр background-ийг зөв харуулах */
+/* Mobile background fix */
 @media (max-width: 768px) {
     body {
-        background-size: cover !important;
-        background-position: center top !important;
+        background:
+            radial-gradient(circle at top, rgba(10,10,40,0.15) 0, rgba(5,5,9,0.35) 55%),
+            url("img/bg-autoscan.jpg") center top / cover no-repeat !important;
+
         background-attachment: scroll !important;
-        background-repeat: no-repeat !important;
     }
 }
 
@@ -863,6 +864,7 @@
 </footer>
 </body>
 </html>
+
 
 
 
