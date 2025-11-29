@@ -24,30 +24,28 @@
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    /* DESKTOP BACKGROUND */
-    body {
-        background:
-            radial-gradient(circle at top, rgba(10,10,40,0.55) 0, rgba(5,5,9,0.8) 55%),
-            url("img/bg-autoscan.jpg") center / cover no-repeat;
-        background-attachment: fixed; /* desktop дээр fixed */
-        color: var(--text-main);
-        line-height: 1.6;
-    }
+   /* === DESKTOP DEFAULT BACKGROUND === */
+body {
+    background: 
+        radial-gradient(circle at top, rgba(10,10,40,0.55), rgba(5,5,9,0.85)),
+        url("img/bg-autoscan.jpg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;   /* зөвхөн desktop дээр */
+    color: var(--text-main);
+}
 
-  /* === PERFECT MOBILE BACKGROUND (iPhone, Android) === */
+/* === MOBILE FIX (iPhone & Android) === */
 @media (max-width: 768px) {
     body {
-        background-color: #050509 !important;    /* суурь өнгө */
-        background-image: url("img/bg-autoscan.jpg") !important;
+        background: 
+            radial-gradient(circle at top, rgba(10,10,40,0.55), rgba(5,5,9,0.85)),
+            url("img/bg-autoscan.jpg");
         background-size: cover !important;
-        background-repeat: no-repeat !important;
-
-        /* iPhone-т яг хэмжээ тааруулах position */
-        background-position: center 45% !important;
-
-        /* iPhone дээр fixed ажилладаггүй тул scroll байлгана */
-        background-attachment: scroll !important;
-
+        background-position: center 35% !important;
+        background-repeat: no-repeat;
+        background-attachment: scroll !important; /* утсан дээр fixed болдоггүй */
    }
 }
 
@@ -870,6 +868,7 @@
 </footer>
 </body>
 </html>
+
 
 
 
