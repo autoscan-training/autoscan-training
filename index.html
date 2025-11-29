@@ -5,885 +5,877 @@
     <title>AutoScan Service & Training Center</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="AutoScan Service & Training Center – Автомашины оношлогоо, засвар үйлчилгээ болон мэргэжлийн сургалт" />
+
     <style>
-    :root {
-        --bg-dark: #050509;
-        --bg-section: #0e0e15;
-        --accent: #ff4fa6;
-        --accent-soft: #ff99cc;
-        --text-main: #f5f5f5;
-        --text-muted: #aaaaaa;
-        --border-soft: #222232;
-        --card-bg: #151522;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-   /* === DESKTOP DEFAULT BACKGROUND === */
-body {
-    background: 
-        radial-gradient(circle at top, rgba(10,10,40,0.55), rgba(5,5,9,0.85)),
-        url("img/bg-autoscan.jpg");
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: fixed;   /* зөвхөн desktop дээр */
-    color: var(--text-main);
-}
-
-/* === MOBILE FIX (iPhone & Android) === */
-@media (max-width: 768px) {
-    body {
-        background: 
-            radial-gradient(circle at top, rgba(10,10,40,0.55), rgba(5,5,9,0.85)),
-            url("img/bg-autoscan.jpg");
-        background-size: auto 90% !important;
-        background-position: center top !important;
-        background-repeat: no-repeat;
-        background-attachment: scroll !important; /* утсан дээр fixed болдоггүй */
-   }
-}
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    header {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        backdrop-filter: blur(16px);
-        background: rgba(5, 5, 9, 0.9);
-        border-bottom: 1px solid rgba(255, 79, 166, 0.25);
-    }
-
-    .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.7rem 0;
-    }
-
-    .logo {
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        font-size: 1.5rem;
-    }
-
-    .logo span { color: var(--accent); }
-
-    nav ul {
-        display: flex;
-        list-style: none;
-        gap: 1.5rem;
-    }
-
-    nav a {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-    }
-
-    nav a:hover { color: var(--accent-soft); }
-
-    .btn-nav {
-        padding: 0.5rem 1rem;
-        border-radius: 999px;
-        border: 1px solid var(--accent);
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-    }
-
-    .btn-nav:hover {
-        background: var(--accent);
-        color: #000;
-    }
-
-    /* HERO */
-    .hero {
-        padding: 3.2rem 0 2.8rem;
-    }
-
-    .hero-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-        gap: 2.5rem;
-        align-items: center;
-    }
-
-    .hero-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.25rem 0.7rem;
-        border-radius: 999px;
-        background: rgba(255, 79, 166, 0.12);
-        border: 1px solid rgba(255, 79, 166, 0.4);
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: var(--accent-soft);
-    }
-
-    .hero-title {
-        margin-top: 1.5rem;
-        font-size: clamp(2.2rem, 3vw + 1.3rem, 3rem);
-        font-weight: 800;
-    }
-
-    .hero-title span { color: var(--accent); }
-
-    .hero-subtitle {
-        margin-top: 1rem;
-        color: var(--text-muted);
-        max-width: 34rem;
-        font-size: 0.95rem;
-    }
-
-    .hero-cta {
-        margin-top: 2rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .btn-primary,
-    .btn-outline {
-        padding: 0.85rem 1.6rem;
-        border-radius: 999px;
-        border: none;
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        cursor: pointer;
-    }
-
-    .btn-primary {
-        background: linear-gradient(120deg, var(--accent), #ff7ad4);
-        color: #050509;
-        font-weight: 600;
-    }
-
-    .btn-outline {
-        border: 1px solid var(--border-soft);
-        background: transparent;
-        color: var(--text-main);
-    }
-
-    .hero-meta {
-        margin-top: 1.5rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        font-size: 0.8rem;
-        color: var(--text-muted);
-    }
-
-    .hero-meta strong {
-        display: block;
-        color: var(--text-main);
-        font-size: 0.95rem;
-    }
-
-    .hero-card {
-        background: radial-gradient(circle at top, rgba(255, 79, 166, 0.28), transparent 55%), var(--card-bg);
-        border-radius: 1.4rem;
-        padding: 1.6rem;
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.65);
-    }
-
-    .hero-card-title {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: var(--text-muted);
-    }
-
-    .hero-card-main {
-        margin-top: 1rem;
-        font-size: 1.05rem;
-        font-weight: 600;
-    }
-
-    .hero-chip-row {
-        margin-top: 1.1rem;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        font-size: 0.75rem;
-    }
-
-    .chip {
-        padding: 0.25rem 0.6rem;
-        border-radius: 999px;
-        background: rgba(0, 0, 0, 0.25);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    /* sections */
-    section { padding: 2.5rem 0; }
-
-    .section-header {
-        margin-bottom: 1.5rem;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 1rem;
-        align-items: flex-end;
-    }
-
-    .section-title {
-        font-size: 1.3rem;
-        font-weight: 700;
-    }
-
-    .section-title span { color: var(--accent); }
-
-    .section-subtitle {
-        font-size: 0.9rem;
-        color: var(--text-muted);
-        max-width: 26rem;
-    }
-
-    /* Services */
-    .service-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.2rem;
-    }
-
-    .service-card {
-        background: var(--card-bg);
-        border-radius: 1rem;
-        padding: 1.2rem 1.2rem 1.3rem;
-        border: 1px solid var(--border-soft);
-        font-size: 0.9rem;
-    }
-
-    .service-name {
-        font-weight: 600;
-        margin-bottom: 0.4rem;
-    }
-
-    .service-desc {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        margin-bottom: 0.4rem;
-    }
-
-    .service-tag {
-        display: inline-block;
-        font-size: 0.75rem;
-        padding: 0.2rem 0.6rem;
-        border-radius: 999px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        color: var(--accent-soft);
-    }
-
-    /* Courses (training) */
-    .course-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1.2rem;
-    }
-
-    .course-card {
-        background: var(--card-bg);
-        border-radius: 1rem;
-        padding: 1.2rem 1.2rem 1.3rem;
-        border: 1px solid var(--border-soft);
-        font-size: 0.9rem;
-    }
-
-    .course-level {
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--accent-soft);
-    }
-
-    .course-name {
-        font-weight: 600;
-        margin-top: 0.15rem;
-    }
-
-    .course-desc {
-        font-size: 0.85rem;
-        color: var(--text-muted);
-        margin-top: 0.35rem;
-    }
-
-    .course-price {
-        margin-top: 0.45rem;
-        font-size: 0.9rem;
-    }
-
-    .course-price strong { color: var(--accent-soft); }
-
-    /* About & contact */
-    .about-grid,
-    .contact-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-        gap: 1.8rem;
-    }
-
-    .about-box {
-        background: var(--card-bg);
-        border-radius: 1rem;
-        padding: 1.3rem;
-        border: 1px solid var(--border-soft);
-        font-size: 0.9rem;
-    }
-
-    .about-box h3 { margin-bottom: 0.6rem; font-size: 1rem; }
-
-    .about-list { margin-top: 0.4rem; padding-left: 1.1rem; }
-    .about-list li { margin-bottom: 0.25rem; }
-
-    form {
-        background: var(--card-bg);
-        border-radius: 1rem;
-        padding: 1.3rem;
-        border: 1px solid var(--border-soft);
-        font-size: 0.9rem;
-    }
-
-    .form-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .form-group {
-        flex: 1;
-        min-width: 48%;
-        margin-bottom: 0.9rem;
-    }
-
-    .form-group label {
-        display: block;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--text-muted);
-        margin-bottom: 0.25rem;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 100%;
-        padding: 0.6rem 0.7rem;
-        border-radius: 0.5rem;
-        border: 1px solid var(--border-soft);
-        background: #080812;
-        color: var(--text-main);
-        font-size: 0.85rem;
-    }
-
-    .form-group textarea { min-height: 90px; resize: vertical; }
-
-    .contact-info-box { font-size: 0.9rem; }
-    .info-line { margin-bottom: 0.45rem; }
-    .info-label {
-        font-size: 0.75rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: var(--text-muted);
-    }
-    .info-value { font-weight: 500; }
-
-    footer {
-        padding: 1.8rem 0 2.4rem;
-        font-size: 0.8rem;
-        color: var(--text-muted);
-    }
-
-    .footer-row {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-        .hero-grid,
-        .service-grid,
-        .course-grid,
-        .about-grid,
-        .contact-grid {
-            grid-template-columns: minmax(0, 1fr);
+        :root {
+            --bg-dark: #050509;
+            --bg-section: #0e0e15;
+            --accent: #ff4fa6;
+            --accent-soft: #ff99cc;
+            --text-main: #f5f5f5;
+            --text-muted: #aaaaaa;
+            --border-soft: #222232;
+            --card-bg: #151522;
         }
 
-        nav ul { display: none; }
-        .hero { padding-top: 2.4rem; }
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
 
-    @media (max-width: 600px) {
-        .service-grid,
-        .course-grid { grid-template-columns: minmax(0, 1fr); }
+        /* =============================
+           GLOBAL / BACKGROUND
+        ============================== */
 
-        .form-group { min-width: 100%; }
+        body {
+            color: var(--text-main);
+            line-height: 1.6;
+            background: var(--bg-dark); /* fallback */
+        }
+
+        /* Fixed background DIV – desktop + mobile */
+        .bg-fixed {
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            background:
+                radial-gradient(circle at top, rgba(10,10,40,0.55), rgba(5,5,9,0.85) 55%),
+                url("img/bg-autoscan.jpg") center top / cover no-repeat;
+            z-index: -10;
+        }
+
+        /* Mobile дээр арай бага zoom + бүхэл зураг харагдуулах */
+        @media (max-width: 768px) {
+            .bg-fixed {
+                background:
+                    radial-gradient(circle at top, rgba(10,10,40,0.55), rgba(5,5,9,0.9) 55%),
+                    url("img/bg-autoscan.jpg") center top / contain no-repeat;
+            }
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            background: rgba(5, 5, 9, 0.9);
+            border-bottom: 1px solid rgba(255, 79, 166, 0.25);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.7rem 0;
+        }
+
+        .logo {
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+        }
+
+        .logo span { color: var(--accent); }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        nav a:hover { color: var(--accent-soft); }
+
+        .btn-nav {
+            padding: 0.5rem 1rem;
+            border-radius: 999px;
+            border: 1px solid var(--accent);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .btn-nav:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 3.2rem 0 2.8rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            background: rgba(255, 79, 166, 0.12);
+            border: 1px solid rgba(255, 79, 166, 0.4);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--accent-soft);
+        }
+
+        .hero-title {
+            margin-top: 1.5rem;
+            font-size: clamp(2.2rem, 3vw + 1.3rem, 3rem);
+            font-weight: 800;
+        }
+
+        .hero-title span { color: var(--accent); }
+
+        .hero-subtitle {
+            margin-top: 1rem;
+            color: var(--text-muted);
+            max-width: 34rem;
+            font-size: 0.95rem;
+        }
+
+        .hero-cta {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-primary,
+        .btn-outline {
+            padding: 0.85rem 1.6rem;
+            border-radius: 999px;
+            border: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(120deg, var(--accent), #ff7ad4);
+            color: #050509;
+            font-weight: 600;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-soft);
+            background: transparent;
+            color: var(--text-main);
+        }
 
         .hero-meta {
-            flex-direction: column;
-            align-items: flex-start;
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
-    }
 
-    /* Gallery */
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 0.7rem;
-        margin-top: 1rem;
-    }
+        .hero-meta strong {
+            display: block;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
 
-    .gallery-item {
-        position: relative;
-        overflow: hidden;
-        border-radius: 0.8rem;
-        border: 1px solid var(--border-soft);
-        background: #0b0b12;
-        aspect-ratio: 4 / 3;
-    }
+        .hero-card {
+            background: radial-gradient(circle at top, rgba(255, 79, 166, 0.28), transparent 55%), var(--card-bg);
+            border-radius: 1.4rem;
+            padding: 1.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.65);
+        }
 
-    .gallery-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.4s ease;
-    }
+        .hero-card-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+        }
 
-    .gallery-item:hover img {
-        transform: scale(1.06);
-    }
+        .hero-card-main {
+            margin-top: 1rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
 
-    .gallery-caption {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 0.35rem 0.55rem;
-        font-size: 0.75rem;
-        background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
-    }
+        .hero-chip-row {
+            margin-top: 1.1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+        }
 
-    .gallery-caption span {
-        color: var(--accent-soft);
-        font-weight: 500;
-    }
+        .chip {
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
 
-    @media (max-width: 900px) {
-        .gallery-grid {
+        /* sections */
+        section { padding: 2.5rem 0; }
+
+        .section-header {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .section-title span { color: var(--accent); }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 26rem;
+        }
+
+        /* Services */
+        .service-grid {
+            display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.2rem;
         }
-    }
 
-    @media (max-width: 600px) {
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 1.2rem 1.2rem 1.3rem;
+            border: 1px solid var(--border-soft);
+            font-size: 0.9rem;
+        }
+
+        .service-name {
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .service-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+        }
+
+        .service-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--accent-soft);
+        }
+
+        /* Courses (training) */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.2rem;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 1.2rem 1.2rem 1.3rem;
+            border: 1px solid var(--border-soft);
+            font-size: 0.9rem;
+        }
+
+        .course-level {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-soft);
+        }
+
+        .course-name {
+            font-weight: 600;
+            margin-top: 0.15rem;
+        }
+
+        .course-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.35rem;
+        }
+
+        .course-price {
+            margin-top: 0.45rem;
+            font-size: 0.9rem;
+        }
+
+        .course-price strong { color: var(--accent-soft); }
+
+        /* About & contact */
+        .about-grid,
+        .contact-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 1.8rem;
+        }
+
+        .about-box {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 1.3rem;
+            border: 1px solid var(--border-soft);
+            font-size: 0.9rem;
+        }
+
+        .about-box h3 { margin-bottom: 0.6rem; font-size: 1rem; }
+
+        .about-list { margin-top: 0.4rem; padding-left: 1.1rem; }
+        .about-list li { margin-bottom: 0.25rem; }
+
+        form {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 1.3rem;
+            border: 1px solid var(--border-soft);
+            font-size: 0.9rem;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 48%;
+            margin-bottom: 0.9rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.6rem 0.7rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-soft);
+            background: #080812;
+            color: var(--text-main);
+            font-size: 0.85rem;
+        }
+
+        .form-group textarea { min-height: 90px; resize: vertical; }
+
+        .contact-info-box { font-size: 0.9rem; }
+        .info-line { margin-bottom: 0.45rem; }
+        .info-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+        }
+        .info-value { font-weight: 500; }
+
+        footer {
+            padding: 1.8rem 0 2.4rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-grid,
+            .service-grid,
+            .course-grid,
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            nav ul { display: none; }
+            .hero { padding-top: 2.4rem; }
+        }
+
+        @media (max-width: 600px) {
+            .service-grid,
+            .course-grid { grid-template-columns: minmax(0, 1fr); }
+
+            .form-group { min-width: 100%; }
+
+            .hero-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Gallery */
         .gallery-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 0.7rem;
+            margin-top: 1rem;
         }
-    }
-</style>
 
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.8rem;
+            border: 1px solid var(--border-soft);
+            background: #0b0b12;
+            aspect-ratio: 4 / 3;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.35rem 0.55rem;
+            font-size: 0.75rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+        }
+
+        .gallery-caption span {
+            color: var(--accent-soft);
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header>
-    <div class="container nav">
-        <div class="logo">AUTOSCAN <span>SERVICE</span></div>
-        <nav>
-            <ul>
-                <li><a href="#services">Засвар</a></li>
-                <li><a href="#training">Сургалт</a></li>
-                <li><a href="#about">Тухай</a></li>
-                <li><a href="#contact">Холбоо барих</a></li>
-            </ul>
-        </nav>
-        <a href="#contact" class="btn-nav">Онлайн бүртгэл</a>
-    </div>
-</header>
+    <!-- FIXED BACKGROUND DIV -->
+    <div class="bg-fixed"></div>
 
-<main>
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container hero-grid">
-            <div>
-                <div class="hero-badge">AutoScan Service & Training Center</div>
-                <h1 class="hero-title">
-                    Оношлогоо, засвар <span>+</span> мэргэжлийн сургалт
-                </h1>
-                <p class="hero-subtitle">
-                    AutoScan нь бүх брэндийн автомашинд оношлогоо, ECU программчлал,
-                    цахилгааны засвар, тюнингийн үйлчилгээ үзүүлэхийн зэрэгцээ
-                    мэргэжлийн сургалт явуулдаг гараж ба сургалтын төв юм.
-                </p>
-                <div class="hero-cta">
-                    <a href="#services"><button class="btn-primary">Засварт цаг авах</button></a>
-                    <a href="#training"><button class="btn-outline">Сургалтанд бүртгүүлэх</button></a>
+    <header>
+        <div class="container nav">
+            <div class="logo">AUTOSCAN <span>SERVICE</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Засвар</a></li>
+                    <li><a href="#training">Сургалт</a></li>
+                    <li><a href="#about">Тухай</a></li>
+                    <li><a href="#contact">Холбоо барих</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn-nav">Онлайн бүртгэл</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero-grid">
+                <div>
+                    <div class="hero-badge">AutoScan Service & Training Center</div>
+                    <h1 class="hero-title">
+                        Оношлогоо, засвар <span>+</span> мэргэжлийн сургалт
+                    </h1>
+                    <p class="hero-subtitle">
+                        AutoScan нь бүх брэндийн автомашинд оношлогоо, ECU программчлал,
+                        цахилгааны засвар, тюнингийн үйлчилгээ үзүүлэхийн зэрэгцээ
+                        мэргэжлийн сургалт явуулдаг гараж ба сургалтын төв юм.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#services"><button class="btn-primary">Засварт цаг авах</button></a>
+                        <a href="#training"><button class="btn-outline">Сургалтанд бүртгүүлэх</button></a>
+                    </div>
+                    <div class="hero-meta">
+                        <div>
+                            <strong>Гараж</strong>
+                            Оношлогоо, ECU программчлал, цахилгаан, тюнинг.
+                        </div>
+                        <div>
+                            <strong>Сургалт</strong>
+                            Electrical Level 1–3, Diagnostics Masterclass, ECU & CAN.
+                        </div>
+                    </div>
                 </div>
-                <div class="hero-meta">
+
+                <div>
+                    <div class="hero-card">
+                        <div class="hero-card-title">Танд юу хэрэгтэй байна?</div>
+                        <div class="hero-card-main">
+                            • Машиндаа нарийн оношлогоо, засвар  
+                            • Өөрөө мэргэжлийн оношлогооч болох сургалт
+                        </div>
+                        <div class="hero-chip-row">
+                            <div class="chip">Check Engine / алдааны код</div>
+                            <div class="chip">ECU / TCU программчлал</div>
+                            <div class="chip">CAN bus оношлогоо</div>
+                            <div class="chip">AutoScan Electrical Level 1–3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section id="services">
+            <div class="container">
+                <div class="section-header">
                     <div>
-                        <strong>Гараж</strong>
-                        Оношлогоо, ECU программчлал, цахилгаан, тюнинг.
+                        <h2 class="section-title">AutoScan <span>Service</span> – Засвар үйлчилгээ</h2>
+                        <p class="section-subtitle">
+                            Бүх төрлийн автомашины оношлогоо, нарийн цахилгаан, ECU/TCU
+                            программчлал, тюнингийн үйлчилгээ.
+                        </p>
                     </div>
+                </div>
+
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-name">Оношлогоо & цахилгаан</div>
+                        <p class="service-desc">
+                            Launch, Autel, OEM программ ашиглан бүх системийн алдаа уншиж,
+                            wiring diagram дээр үндэслэн бодит гэмтлийг олж засварлана.
+                        </p>
+                        <span class="service-tag">Diagnostics • Electrical</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-name">ECU / TCU программчлал</div>
+                        <p class="service-desc">
+                            ECU update, coding, adaptation, immobilizer, key programming,
+                            онлайн болон оффлайн тохиргоо.
+                        </p>
+                        <span class="service-tag">ECU • Coding</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-name">Chiptuning & custom тохиргоо</div>
+                        <p class="service-desc">
+                            Stage 1–2, DPF/EGR шийдэл, Pops & Bangs, launch control гэх мэт
+                            программчлалын түвшний тохиргоо (зөвхөн тохирох машинд).
+                        </p>
+                        <span class="service-tag">Performance</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-name">CAN bus оношлогоо</div>
+                        <p class="service-desc">
+                            CAN сүлжээ тасралт, модуль хоорондын холболт, gateway алдаа,
+                            сүлжээний хэмжилт, анализ.
+                        </p>
+                        <span class="service-tag">CAN Network</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-name">Төлөвлөгөөт үзлэг & зөвлөгөө</div>
+                        <p class="service-desc">
+                            Худалдаж авах гэж буй машины пред-осмотр, оношлогооны тайлан,
+                            зөвлөмж, ирээдүйн засварын төлөвлөгөө гаргаж өгнө.
+                        </p>
+                        <span class="service-tag">Pre-purchase</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-name">Бусад үйлчилгээ</div>
+                        <p class="service-desc">
+                            ABS/ESP, Airbag, EPB, 4x4 систем, түлхүүр програмчлал г.м.
+                            нарийн системүүдийн оношлогоо, тохиргоо.
+                        </p>
+                        <span class="service-tag">Advanced Systems</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section id="gallery">
+            <div class="container">
+                <div class="section-header">
                     <div>
-                        <strong>Сургалт</strong>
-                        Electrical Level 1–3, Diagnostics Masterclass, ECU & CAN.
+                        <h2 class="section-title">AutoScan <span>Gallery</span></h2>
+                        <p class="section-subtitle">
+                            Манай гараж, оношлогооны процесс, сургалтын үеийн орчны хэдэн зургийг хүргэж байна.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/600x400" alt="Service Bay" />
+                        <div class="gallery-caption"><span>Service Bay</span> – Оношлогоо</div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/600x400" alt="ECU Bench" />
+                        <div class="gallery-caption"><span>ECU Bench</span> – ECU программчлал</div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/600x400" alt="Training" />
+                        <div class="gallery-caption"><span>Training</span> – Electrical Level хичээл</div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/600x400" alt="CAN Bus Training" />
+                        <div class="gallery-caption"><span>CAN Lab</span> – CAN шинжилгээ</div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div>
-                <div class="hero-card">
-                    <div class="hero-card-title">Танд юу хэрэгтэй байна?</div>
-                    <div class="hero-card-main">
-                        • Машиндаа нарийн оношлогоо, засвар  
-                        • Өөрөө мэргэжлийн оношлогооч болох сургалт
+        <!-- TRAINING -->
+        <section id="training">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">AutoScan <span>Training Center</span> – Сургалт</h2>
+                        <p class="section-subtitle">
+                            Гараж дээрх бодит туршлага дээр суурилсан цахилгаан, оношлогоо,
+                            ECU & CAN сургалтууд.
+                        </p>
                     </div>
-                    <div class="hero-chip-row">
-                        <div class="chip">Check Engine / алдааны код</div>
-                        <div class="chip">ECU / TCU программчлал</div>
-                        <div class="chip">CAN bus оношлогоо</div>
-                        <div class="chip">AutoScan Electrical Level 1–3</div>
+                </div>
+
+                <div class="course-grid">
+                    <div class="course-card">
+                        <div class="course-level">Level 1</div>
+                        <div class="course-name">AutoScan Electrical Level 1</div>
+                        <p class="course-desc">
+                            Цахилгааны суурь, мультиметр ашиглалт, схем унших эхлэл,
+                            basic sensor/actuator шалгах.
+                        </p>
+                        <div class="course-price">Төлбөр: <strong>1,000,000₮</strong></div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-level">Level 2</div>
+                        <div class="course-name">Electrical Level 2</div>
+                        <p class="course-desc">
+                            Дунд шатны wiring, relay/fuse circuits, signal шалгалт,
+                            бодит гэмтэл дээр ажиллах.
+                        </p>
+                        <div class="course-price">Төлбөр: <strong>1,300,000₮</strong></div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-level">Diagnostics</div>
+                        <div class="course-name">Diagnostics Masterclass</div>
+                        <p class="course-desc">
+                            Оношлогооны багажийг зөв ашиглах, test plan, flowchart,
+                            “parts changer” биш “problem solver” болгох сургалт.
+                        </p>
+                        <div class="course-price">Төлбөр: <strong>1,500,000₮</strong></div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-level">ECU & CAN</div>
+                        <div class="course-name">ECU & CAN Training</div>
+                        <p class="course-desc">
+                            ECU бүтэц, flash/EEPROM ойлголт, CAN bus үндэс, basic tuning logic.
+                        </p>
+                        <div class="course-price">Төлбөр: <strong>2,000,000₮</strong></div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-level">Bundle</div>
+                        <div class="course-name">Full AutoScan Package</div>
+                        <p class="course-desc">
+                            Electrical Level 1–3 + Diagnostics + ECU & CAN багц сургалт.
+                        </p>
+                        <div class="course-price">Төлбөр: <strong>…₮ (тохиролцоно)</strong></div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SERVICES -->
-    <section id="services">
-        <div class="container">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">AutoScan <span>Service</span> – Засвар үйлчилгээ</h2>
-                    <p class="section-subtitle">
-                        Бүх төрлийн автомашины оношлогоо, нарийн цахилгаан, ECU/TCU
-                        программчлал, тюнингийн үйлчилгээ.
-                    </p>
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">AutoScan-ийн <span>тухай</span></h2>
+                    </div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-box">
+                        <h3>Гараж + сургалт нэг дор</h3>
+                        <p>
+                            AutoScan Service нь бүх брэндийн автомашинд нарийн оношлогоо,
+                            ECU программчлал, цахилгааны ажил хийдэг жижиг боловч high-skill
+                            гараж. Энэ туршлага дээрээ үндэслээд AutoScan Training Center-ийг
+                            нээж, бодит кейс дээр суурилсан сургалт явуулж байна.
+                        </p>
+                        <ul class="about-list">
+                            <li>Бодит машин дээр хийх практик хичээл</li>
+                            <li>Гэмтлийн логик, сэтгэлгээний сургалт</li>
+                            <li>ECU, CAN, wiring-ийг нэг систем болгон ойлгуулна</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-box">
+                        <h3>Instructor / CEO – Ganbileg Batbileg</h3>
+                        <p>
+                            Автомашины оношлогоо, ECU программчлал, chiptuning,
+                            CAN системийн чиглэлээр олон жил ажиллаж буй инженер.
+                        </p>
+                        <ul class="about-list">
+                            <li>AutoScan Service – Founder & Director</li>
+                            <li>Европ, премиум брэндүүдийн олон кейстэй</li>
+                            <li>Гаражийн бодит нөхцөлд тохирсон арга барил заана</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="service-grid">
-                <div class="service-card">
-                    <div class="service-name">Оношлогоо & цахилгаан</div>
-                    <p class="service-desc">
-                        Launch, Autel, OEM программ ашиглан бүх системийн алдаа уншиж,
-                        wiring diagram дээр үндэслэн бодит гэмтлийг олж засварлана.
-                    </p>
-                    <span class="service-tag">Diagnostics • Electrical</span>
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title"><span>Холбоо</span> барих / Онлайн бүртгэл</h2>
+                        <p class="section-subtitle">
+                            Машинаа үзүүлэх эсвэл сургалтанд бүртгүүлэх бол доорх формыг бөглөөд
+                            илгээнэ үү. Бид мессеж, утсаар эргээд холбогдоно.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-name">ECU / TCU программчлал</div>
-                    <p class="service-desc">
-                        ECU update, coding, adaptation, immobilizer, key programming,
-                        онлайн болон оффлайн тохиргоо.
-                    </p>
-                    <span class="service-tag">ECU • Coding</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-name">Chiptuning & custom тохиргоо</div>
-                    <p class="service-desc">
-                        Stage 1–2, DPF/EGR шийдэл, Pops & Bangs, launch control гэх мэт
-                        программчлалын түвшний тохиргоо (зөвхөн тохирох машинд).
-                    </p>
-                    <span class="service-tag">Performance</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-name">CAN bus оношлогоо</div>
-                    <p class="service-desc">
-                        CAN сүлжээ тасралт, модуль хоорондын холболт, gateway алдаа,
-                        сүлжээний хэмжилт, анализ.
-                    </p>
-                    <span class="service-tag">CAN Network</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-name">Төлөвлөгөөт үзлэг & зөвлөгөө</div>
-                    <p class="service-desc">
-                        Худалдаж авах гэж буй машины пред-осмотр, оношлогооны тайлан,
-                        зөвлөмж, ирээдүйн засварын төлөвлөгөө гаргаж өгнө.
-                    </p>
-                    <span class="service-tag">Pre-purchase</span>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-name">Бусад үйлчилгээ</div>
-                    <p class="service-desc">
-                        ABS/ESP, Airbag, EPB, 4x4 систем, түлхүүр програмчлал г.м.
-                        нарийн системүүдийн оношлогоо, тохиргоо.
-                    </p>
-                    <span class="service-tag">Advanced Systems</span>
-                </div>
-            </div>
-        </div>
-    </section>
-<!-- GALLERY -->
-<section id="gallery">
-    <div class="container">
-        <div class="section-header">
-            <div>
-                <h2 class="section-title">AutoScan <span>Gallery</span></h2>
-                <p class="section-subtitle">
-                    Манай гараж, оношлогооны процесс, сургалтын үеийн орчны хэдэн зургийг хүргэж байна.
-                </p>
-            </div>
-        </div>
-
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400" alt="Service Bay" />
-                <div class="gallery-caption"><span>Service Bay</span> – Оношлогоо</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400" alt="ECU Bench" />
-                <div class="gallery-caption"><span>ECU Bench</span> – ECU программчлал</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400" alt="Training" />
-                <div class="gallery-caption"><span>Training</span> – Electrical Level хичээл</div>
-            </div>
-
-            <div class="gallery-item">
-                <img src="https://via.placeholder.com/600x400" alt="CAN Bus Training" />
-                <div class="gallery-caption"><span>CAN Lab</span> – CAN шинжилгээ</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- TRAINING -->
-    <section id="training">
-        <div class="container">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">AutoScan <span>Training Center</span> – Сургалт</h2>
-                    <p class="section-subtitle">
-                        Гараж дээрх бодит туршлага дээр суурилсан цахилгаан, оношлогоо,
-                        ECU & CAN сургалтууд.
-                    </p>
-                </div>
-            </div>
-
-            <div class="course-grid">
-                <div class="course-card">
-                    <div class="course-level">Level 1</div>
-                    <div class="course-name">AutoScan Electrical Level 1</div>
-                    <p class="course-desc">
-                        Цахилгааны суурь, мультиметр ашиглалт, схем унших эхлэл,
-                        basic sensor/actuator шалгах.
-                    </p>
-                    <div class="course-price">Төлбөр: <strong>1,000,000₮</strong></div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-level">Level 2</div>
-                    <div class="course-name">Electrical Level 2</div>
-                    <p class="course-desc">
-                        Дунд шатны wiring, relay/fuse circuits, signal шалгалт,
-                        бодит гэмтэл дээр ажиллах.
-                    </p>
-                    <div class="course-price">Төлбөр: <strong>1,300,000₮</strong></div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-level">Diagnostics</div>
-                    <div class="course-name">Diagnostics Masterclass</div>
-                    <p class="course-desc">
-                        Оношлогооны багажийг зөв ашиглах, test plan, flowchart,
-                        “parts changer” биш “problem solver” болгох сургалт.
-                    </p>
-                    <div class="course-price">Төлбөр: <strong>1,500,000₮</strong></div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-level">ECU & CAN</div>
-                    <div class="course-name">ECU & CAN Training</div>
-                    <p class="course-desc">
-                        ECU бүтэц, flash/EEPROM ойлголт, CAN bus үндэс, basic tuning logic.
-                    </p>
-                    <div class="course-price">Төлбөр: <strong>2,000,000₮</strong></div>
-                </div>
-
-                <div class="course-card">
-                    <div class="course-level">Bundle</div>
-                    <div class="course-name">Full AutoScan Package</div>
-                    <p class="course-desc">
-                        Electrical Level 1–3 + Diagnostics + ECU & CAN багц сургалт.
-                    </p>
-                    <div class="course-price">Төлбөр: <strong>…₮ (тохиролцоно)</strong></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-        <div class="container">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title">AutoScan-ийн <span>тухай</span></h2>
-                </div>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-box">
-                    <h3>Гараж + сургалт нэг дор</h3>
-                    <p>
-                        AutoScan Service нь бүх брэндийн автомашинд нарийн оношлогоо,
-                        ECU программчлал, цахилгааны ажил хийдэг жижиг боловч high-skill
-                        гараж. Энэ туршлага дээрээ үндэслээд AutoScan Training Center-ийг
-                        нээж, бодит кейс дээр суурилсан сургалт явуулж байна.
-                    </p>
-                    <ul class="about-list">
-                        <li>Бодит машин дээр хийх практик хичээл</li>
-                        <li>Гэмтлийн логик, сэтгэлгээний сургалт</li>
-                        <li>ECU, CAN, wiring-ийг нэг систем болгон ойлгуулна</li>
-                    </ul>
-                </div>
-
-                <div class="about-box">
-                    <h3>Instructor / CEO – Ganbileg Batbileg</h3>
-                    <p>
-                        Автомашины оношлогоо, ECU программчлал, chiptuning,
-                        CAN системийн чиглэлээр олон жил ажиллаж буй инженер.
-                    </p>
-                    <ul class="about-list">
-                        <li>AutoScan Service – Founder & Director</li>
-                        <li>Европ, премиум брэндүүдийн олон кейстэй</li>
-                        <li>Гаражийн бодит нөхцөлд тохирсон арга барил заана</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title"><span>Холбоо</span> барих / Онлайн бүртгэл</h2>
-                    <p class="section-subtitle">
-                        Машинаа үзүүлэх эсвэл сургалтанд бүртгүүлэх бол доорх формыг бөглөөд
-                        илгээнэ үү. Бид мессеж, утсаар эргээд холбогдоно.
-                    </p>
-                </div>
-            </div>
-
-            <div class="contact-grid">
-                <form>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Нэр</label>
-                            <input type="text" placeholder="Овог, нэр" />
+                <div class="contact-grid">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Нэр</label>
+                                <input type="text" placeholder="Овог, нэр" />
+                            </div>
+                            <div class="form-group">
+                                <label>Утас</label>
+                                <input type="tel" placeholder="Утасны дугаар" />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Утас</label>
-                            <input type="tel" placeholder="Утасны дугаар" />
-                        </div>
-                    </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Зорилго</label>
-                            <select>
-                                <option>Засварт цаг авах</option>
-                                <option>Сургалтанд бүртгүүлэх</option>
-                                <option>Ерөнхий зөвлөгөө / асуулт</option>
-                            </select>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Зорилго</label>
+                                <select>
+                                    <option>Засварт цаг авах</option>
+                                    <option>Сургалтанд бүртгүүлэх</option>
+                                    <option>Ерөнхий зөвлөгөө / асуулт</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Сонголт (хэрвээ сургалт бол)</label>
+                                <select>
+                                    <option>AutoScan Electrical Level 1</option>
+                                    <option>Electrical Level 2</option>
+                                    <option>Diagnostics Masterclass</option>
+                                    <option>ECU & CAN Training</option>
+                                    <option>Full Package</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Сонголт (хэрвээ сургалт бол)</label>
-                            <select>
-                                <option>AutoScan Electrical Level 1</option>
-                                <option>Electrical Level 2</option>
-                                <option>Diagnostics Masterclass</option>
-                                <option>ECU & CAN Training</option>
-                                <option>Full Package</option>
-                            </select>
-                        </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label>Машины марк / асуулт</label>
+                        <div class="form-group">
+                            <label>Машины марк / асуулт</label>
                             <textarea placeholder="Машины марк, асуудлын товч тайлбар эсвэл өөрийн зорилгоо бичээрэй."></textarea>
-                    </div>
+                        </div>
 
-                    <button type="submit" class="btn-primary">Илгээх (жишээ form)</button>
-                    <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.6rem;">
-                        * Form одоогоор жишээ байдлаар байна. Жинхэнэдээ ашиглахдаа email,
-                        Messenger bot, Google Sheet зэрэгтэй холбох боломжтой.
-                    </p>
-                </form>
+                        <button type="submit" class="btn-primary">Илгээх (жишээ form)</button>
+                        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.6rem;">
+                            * Form одоогоор жишээ байдлаар байна. Жинхэнэдээ ашиглахдаа email,
+                            Messenger bot, Google Sheet зэрэгтэй холбох боломжтой.
+                        </p>
+                    </form>
 
-                <div class="contact-info-box">
-                    <div class="info-line">
-                        <div class="info-label">Утас</div>
-                        <div class="info-value">+976 9190 0084 (өөрийн бодит дугаараар соли)</div>
-                    </div>
-                    <div class="info-line">
-                        <div class="info-label">Facebook Page</div>
-                        <div class="info-value">AutoScan Service / AutoScan Training Center</div>
-                    </div>
-                    <div class="info-line">
-                        <div class="info-label">Байршил</div>
-                        <div class="info-value">Улаанбаатар хот, … (гаражийн байршлаа энд бич)</div>
-                    </div>
-                    <div class="info-line">
-                        <div class="info-label">Цагийн хуваарь</div>
-                        <div class="info-value">Даваа–Бямба: 10:00–19:00 (жишээ)</div>
+                    <div class="contact-info-box">
+                        <div class="info-line">
+                            <div class="info-label">Утас</div>
+                            <div class="info-value">+976 9190 0084</div>
+                        </div>
+                        <div class="info-line">
+                            <div class="info-label">Facebook Page</div>
+                            <div class="info-value">AutoScan Service / AutoScan Training Center</div>
+                        </div>
+                        <div class="info-line">
+                            <div class="info-label">Байршил</div>
+                            <div class="info-value">Улаанбаатар хот, … (гаражийн байршлаа энд бич)</div>
+                        </div>
+                        <div class="info-line">
+                            <div class="info-label">Цагийн хуваарь</div>
+                            <div class="info-value">Даваа–Бямба: 10:00–19:00 (жишээ)</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+    </main>
 
-<footer>
-    <div class="container footer-row">
-        <div>© AutoScan Service & Training Center – Ganbileg Batbileg</div>
-        <div>“Diagnose smart. Fix right. Learn once.”</div>
-    </div>
-</footer>
+    <footer>
+        <div class="container footer-row">
+            <div>© AutoScan Service & Training Center – Ganbileg Batbileg</div>
+            <div>“Diagnose smart. Fix right. Learn once.”</div>
+        </div>
+    </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
