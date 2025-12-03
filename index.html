@@ -990,6 +990,52 @@ Airbag (SRS), ABS/ESP, EPB, Steering Angle, 4x4 систем зэрэг
 
     <button type="submit" class="btn-primary form-btn">Бүртгүүлэх</button>
 </form>
+<script>
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwg8gu9vIrwsvHFGoghBrqExG0c-vsZi7viy53YIdj63WWltvpYflw6_0KLRn9gSuQ/exec"; // <-- энд Apps Script-ийн exec URL-аа тавина
+
+const form = document.getElementById("training-form");
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const btn = form.querySelector(".form-btn");
+    if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Илгээж байна...";
+    }
+
+    const payload = {
+        name: document.getElementById("name").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        course: document.getElementById("course").value,
+        level: document.getElementById("level") ? document.getElementById("level").value : "",
+        message: document.getElementById("message").value.trim()
+    };
+
+    fetch(WEB_APP_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert("Амжилттай бүртгүүллээ! Бид удахгүй тан руу холбогдоно.");
+        form.reset();
+        const levelGroup = document.getElementById("level-group");
+        if (levelGroup) levelGroup.style.display = "none";
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Алдаа гарлаа. Дахин оролдоно уу эсвэл шууд утсаар холбогдоорой.");
+    })
+    .finally(() => {
+        if (btn) {
+            btn.disabled = false;
+            btn.textContent = "Бүртгүүлэх";
+        }
+    });
+});
+</script>
 
 <script>
 function courseSelectChanged() {
@@ -1054,6 +1100,7 @@ function courseSelectChanged() {
 
 </body>
 </html>
+
 
 
 
