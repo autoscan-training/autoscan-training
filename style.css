@@ -57,3 +57,48 @@
     background: #ff7fbd;
     transform: translateY(-3px);
 }
+/* ---- MODAL + NEON EFFECT ---- */
+
+.modal-overlay {
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    backdrop-filter:blur(6px);
+    z-index:2000;
+}
+
+.modal-box {
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    padding:24px;
+    width:90%;
+    max-width:460px;
+    background:#0a0a12;
+    border-radius:16px;
+    border:2px solid #ff4fa6;
+    box-shadow:0 0 20px #ff4fa6, 0 0 40px rgba(255,79,166,0.4);
+    z-index:2100;
+    animation: neonPop 0.25s ease;
+}
+
+@keyframes neonPop {
+    0% { transform:translate(-50%,-50%) scale(0.85); opacity:0; }
+    100% { transform:translate(-50%,-50%) scale(1); opacity:1; }
+}
+
+.modal-close {
+    float:right;
+    font-size:28px;
+    cursor:pointer;
+    color:#ff99cc;
+    transition:0.2s;
+}
+
+.modal-close:hover {
+    color:#ffffff;
+    text-shadow:0 0 10px #ff4fa6;
+}
