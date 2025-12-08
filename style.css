@@ -112,14 +112,14 @@
 
 .masonry-gallery img {
     width: 100%;
+    height: 260px;      /*  ← Зургийн өндөрийг тогтмол хийж өглөө */
+    object-fit: cover;  /*  ← Том зураг байлаа ч crop хийгээд гоё харагдана */
+    margin-bottom: 16px;
     border-radius: 12px;
     display: block;
-    margin-bottom: 16px;
     border: 1px solid rgba(255,255,255,0.08);
     transition: 0.3s ease;
     cursor: pointer;
-    object-fit: cover;
-    height: 280px; /* ← Зургийн өндрийг жигдрүүлж байна */
 }
 
 .masonry-gallery img:hover {
