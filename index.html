@@ -963,21 +963,69 @@ form.addEventListener("submit", function (e) {
         </div>
     </footer>
     <script>
-        function toggleDetails(targetId) {
-            const box = document.getElementById(targetId);
-            if (!box) return;
+       const modalOverlay = document.getElementById("modalOverlay");
+const modalBox = document.getElementById("modalBox");
+const modalTitle = document.getElementById("modalTitle");
+const modalContent = document.getElementById("modalContent");
+const modalClose = document.getElementById("modalClose");
 
-            const isOpen = box.style.display === "block";
+document.querySelectorAll(".btn-more").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const course = this.dataset.course;
 
-            // div-ээ нээх/хаах
-            box.style.display = isOpen ? "none" : "block";
+        if (course === "electrical") {
+            modalTitle.textContent = "AutoScan Electrical Level 1–3";
+            modalContent.innerHTML = `
+                LEVEL 1<br>
+                • Voltage, current, resistance — суурь ойлголт<br>
+                • Мультиметр ашиглалт<br>
+                • Sensor/Actuator зарчим<br><br>
 
-            // Тухайн div-ийн яг өмнөх товчыг олж текстийг нь солино
-            const btn = box.previousElementSibling;
-            if (btn && btn.classList.contains("details-btn")) {
-                btn.textContent = isOpen ? "Дэлгэрэнгүй" : "Хаах";
-            }
+                LEVEL 2<br>
+                • Wiring diagram унших<br>
+                • Load test, voltage drop test<br>
+                • Relay, fuse, distribution<br><br>
+
+                LEVEL 3<br>
+                • Oscilloscope ашиглах<br>
+                • Crank/Cam waveform анализ<br>
+                • Real vehicle diagnostics<br>
+            `;
         }
+
+        if (course === "diagnostics") {
+            modalTitle.textContent = "Diagnostics Masterclass";
+            modalContent.innerHTML = `
+                • Universal + OEM software (Launch, Autel, ODIS, ISTA)<br>
+                • DTC deep analysis<br>
+                • Freeze frame, live data patterns<br>
+                • Adaptation, coding, workflow<br>
+                • Real case diagnostics<br>
+            `;
+        }
+
+        if (course === "ecu") {
+            modalTitle.textContent = "ECU & CAN Training";
+            modalContent.innerHTML = `
+                • ECU architecture — MCU, Flash, EEPROM<br>
+                • OBD/Bench programming суурь<br>
+                • CAN Bus — ID, frame, arbitration<br>
+                • Sniffing & decoding practical<br>
+                • Intro tuning — map structure<br>
+                • CAN live capture<br>
+            `;
+        }
+
+        modalOverlay.style.display = "block";
+        modalBox.style.display = "block";
+    });
+});
+
+modalClose.addEventListener("click", () => {
+    modalOverlay.style.display = "none";
+    modalBox.style.display = "none";
+});
+        
     </script>
 <!-- Modal Background -->
 <div id="modalOverlay" class="modal-overlay"></div>
@@ -993,6 +1041,7 @@ form.addEventListener("submit", function (e) {
 </div>
 </body>
 </html>
+
 
 
 
