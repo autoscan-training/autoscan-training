@@ -107,11 +107,11 @@
 .masonry-gallery {
     column-count: 4;
     column-gap: 16px;
-    width: 100%;
+    width: 30%;
 }
 
 .masonry-gallery img {
-    width: 100%;
+    width: 30%;
     height: 260px;      /*  ← Зургийн өндөрийг тогтмол хийж өглөө */
     object-fit: cover;  /*  ← Том зураг байлаа ч crop хийгээд гоё харагдана */
     margin-bottom: 16px;
