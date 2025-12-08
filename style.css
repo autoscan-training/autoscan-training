@@ -102,43 +102,7 @@
     color:#ffffff;
     text-shadow:0 0 10px #ff4fa6;
 }
-/* ---- MASONRY GALLERY ---- */
 
-.masonry-gallery {
-    column-count: 4;
-    column-gap: 16px;
-    width: 100%;
-}
-
-.masonry-gallery img {
-    width: 100%;            /* ✔ зураг бүр column өргөнийг дагана */
-    height: 260px;          /* ✔ жигд өндөр */
-    object-fit: cover;      /* ✔ crop хийгээд гоё харагдана */
-    margin-bottom: 16px;
-    border-radius: 12px;
-    display: block;
-    border: 1px solid rgba(255,255,255,0.08);
-    transition: 0.3s ease;
-    cursor: pointer;
-}
-
-
-.masonry-gallery img:hover {
-    transform: scale(1.03);
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-    .masonry-gallery { column-count: 3; }
-}
-
-@media (max-width: 900px) {
-    .masonry-gallery { column-count: 2; }
-}
-
-@media (max-width: 600px) {
-    .masonry-gallery { column-count: 1; }
-}
 /* ---- LIGHTBOX FIX ---- */
 
 #lightbox {
