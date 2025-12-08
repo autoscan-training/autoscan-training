@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="mn">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8" />
     <title>AutoScan Service & Training Center</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -542,50 +541,6 @@
             }
         }
     </style>
-    /* ============ MODAL (POPUP) STYLE ============ */
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(3px);
-    display: none;
-    z-index: 999;
-}
-
-.modal-box {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #0e0e15;
-    border: 1px solid #ff4fa6;
-    box-shadow: 0 0 25px #ff4fa6aa;
-    padding: 25px;
-    width: min(90%, 420px);
-    border-radius: 15px;
-    display: none;
-    z-index: 1000;
-    animation: neonFade 0.25s ease-out;
-}
-
-@keyframes neonFade {
-    from { opacity: 0; transform: translate(-50%, -48%); }
-    to { opacity: 1; transform: translate(-50%, -50%); }
-}
-
-.modal-close {
-    position: absolute;
-    top: 8px;
-    right: 14px;
-    font-size: 30px;
-    cursor: pointer;
-    color: #ff4fa6;
-}
-
-.modal-close:hover {
-    color: #ff99cc;
-}
-
 </head>
 
 <body>
@@ -673,74 +628,157 @@
             </div>
         </section>
 <!-- TRAINING -->
-       <section id="training" class="section">
-    <h2 class="section-title">Сургалт ба хөтөлбөрүүд</h2>
+        <section id="training">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title">AutoScan <span>Training Center</span> – Сургалт</h2>
+                        <p class="section-subtitle">
+                            Гараж дээрх бодит туршлага дээр суурилсан цахилгаан, оношлогоо,
+                            ECU & CAN сургалтууд.
+                        </p>
+                    </div>
+                </div>
 
-    <div class="training-grid">
+               <div class="course-grid">
+    <!-- LEVEL 1 -->
+    <div class="course-card">
+        <div class="course-level">Level 1</div>
+        <div class="course-name">AutoScan Electrical Level 1</div>
+        <p class="course-desc">
+            Цахилгааны суурь ойлголт, мультиметр, схем унших үндэс, 
+            basic sensor/actuator шалгах.
+        </p>
 
-        <!-- 1. Electrical Level 1–3 -->
-        <div class="training-card">
-            <h3 class="training-title">AutoScan Electrical Level 1–3</h3>
-            <p class="training-subtitle">Цахилгааны суурь & практик оношлогоо</p>
-
-            <ul class="training-list">
-                <li>Схем унших, мультиметр, осциллограф ашиглах</li>
-                <li>Мэдрэгч, гүйдэл/хүчдэл хэмжих</li>
-                <li>Алдаа шалтгаан логикоор хайх</li>
-                <li>Бодит машин дээр кейс шийдэл</li>
+        <button class="details-btn" onclick="toggleDetails('lvl1')">Дэлгэрэнгүй</button>
+        <div id="lvl1" class="course-details">
+            <ul>
+                <li>Цахилгааны үндсэн ойлголт (V, A, Ω, P)</li>
+                <li>Мультиметрийн зөв ашиглалт (DC/AC, continuity, resistance)</li>
+                <li>Fuse, relay, ground point шалгах үндэс</li>
+                <li>Энгийн wiring diagram унших, тэмдэглэгээ таних</li>
+                <li>Basic sensor (temp, MAP, MAF) ба actuator (fan, relay) шалгах</li>
             </ul>
-            <p class="training-price">Төлбөр: 1,000,000₮ / шат</p>
-
-            <button class="btn-primary btn-more" data-course="electrical">
-                Дэлгэрэнгүй
-            </button>
         </div>
 
-        <!-- 2. Diagnostics Masterclass -->
-        <div class="training-card">
-            <h3 class="training-title">Diagnostics Masterclass</h3>
-            <p class="training-subtitle">Дээд түвшний оношлогооны мастер</p>
-
-            <ul class="training-list">
-                <li>Launch, Autel, ODIS, ISTA… universal scanner</li>
-                <li>Live data анализ, log бичих</li>
-                <li>DTC workflow шийдэл</li>
-                <li>Full системийн оношлогоо</li>
-            </ul>
-            <p class="training-price">Төлбөр: 1,500,000₮</p>
-
-            <button class="btn-primary btn-more" data-course="diagnostics">
-                Дэлгэрэнгүй
-            </button>
-        </div>
-
-        <!-- 3. ECU & CAN Training -->
-        <div class="training-card">
-            <h3 class="training-title">ECU & CAN Training</h3>
-            <p class="training-subtitle">ECU, CAN шугам, програмчлалын суурь</p>
-
-            <ul class="training-list">
-                <li>ECU/TCU бүтэц, EEPROM/Flash ойлголт</li>
-                <li>CAN Bus sniffing & анализ</li>
-                <li>Chiptuning суурь</li>
-                <li>Programming–ийн суурь мэдлэг</li>
-            </ul>
-            <p class="training-price">Төлбөр: 2,000,000₮</p>
-
-            <button class="btn-primary btn-more" data-course="ecu">
-                Дэлгэрэнгүй
-            </button>
-        </div>
+        <div class="course-price">Төлбөр: <strong>1,000,000₮</strong></div>
     </div>
-</section>
-        <div class="training-cta-box">
-            <p>Дэлгэрэнгүй мэдээлэл авах эсвэл бүртгүүлэхийг хүсвэл доорх товчийг дарж онлайн бүртгэлийн формыг бөглөөрэй.</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLnyZ7Z_KzzI7uaD9-wCF7rmhjGKAAoQqJJqq1DZvcgLdR3A/viewform"
-               class="btn-primary" target="_blank" rel="noopener">
-                ОНЛАЙН БҮРТГҮҮЛЭХ
-            </a>
+
+    <!-- LEVEL 2 -->
+    <div class="course-card">
+        <div class="course-level">Level 2</div>
+        <div class="course-name">AutoScan Electrical Level 2</div>
+        <p class="course-desc">
+            Дунд шатны wiring, relay/fuse circuits, signal шалгалт,
+            бодит гэмтэл дээр ажиллах.
+        </p>
+
+        <button class="details-btn" onclick="toggleDetails('lvl2')">Дэлгэрэнгүй</button>
+        <div id="lvl2" class="course-details">
+            <ul>
+                <li>Voltage drop test – алдагдал хэмжих практик</li>
+                <li>Load test – ачаалал өгч шалгах арга</li>
+                <li>Complex wiring diagram – several module-той схем унших</li>
+                <li>Body control system (BCM, lighting, wiper, door lock) ойлголт</li>
+                <li>Бодит гэмтэл дээр алдаа хайх (case study)</li>
+            </ul>
         </div>
+
+        <div class="course-price">Төлбөр: <strong>1,300,000₮</strong></div>
     </div>
+                   <!-- LEVEL 3 -->
+    <div class="course-card">
+        <div class="course-level">Level 3</div>
+        <div class="course-name">AutoScan Electrical Level 3</div>
+        <p class="course-desc">
+            Нарийн цахилгаан, advanced diagnostics – oscilloscope, complex wiring,
+            module хоорондын харилцаа, real-world fault finding.
+        </p>
+
+        <button class="details-btn" onclick="toggleDetails('lvl3')">Дэлгэрэнгүй</button>
+        <div id="lvl3" class="course-details">
+            <ul>
+                <li>Oscilloscope үндэс – voltage/time, trigger, channel тохиргоо</li>
+                <li>Sensor / actuator сигналын хэлбэрийг харьцуулж унших</li>
+                <li>LIN / CAN / PWM сигналуудыг waveform дээр таних</li>
+                <li>Complex fault – intermittent гэмтэл хайх алгоритм</li>
+                <li>Бодит машин дээр advanced case study (no-start, misfire, CAN fault…)</li>
+            </ul>
+        </div>
+
+        <div class="course-price">Төлбөр: <strong>1,600,000₮</strong></div>
+    </div>
+
+    <!-- DIAGNOSTICS MASTERCLASS -->
+    <div class="course-card">
+        <div class="course-level">Diagnostics</div>
+        <div class="course-name">Diagnostics Masterclass</div>
+        <p class="course-desc">
+            Оношлогооны багаж, test plan, flowchart ашиглаж “parts changer” биш 
+            “problem solver” болгох сургалт.
+        </p>
+
+        <button class="details-btn" onclick="toggleDetails('diag')">Дэлгэрэнгүй</button>
+        <div id="diag" class="course-details">
+            <ul>
+                <li>OEM diagnostic thinking – test plan, guided functions ойлголт</li>
+                <li>DTC-ээс шууд эд анги солихгүй сэтгэлгээний логик</li>
+                <li>Live data / measuring blocks унших, харьцуулалт хийх</li>
+                <li>Short/long term fuel trim, lambda, boost, temp data анализ</li>
+                <li>Case study: 3–5 бодит гэмтэл дээр алгоритм гаргаж шийдэх</li>
+            </ul>
+        </div>
+
+        <div class="course-price">Төлбөр: <strong>1,500,000₮</strong></div>
+    </div>
+
+    <!-- ECU & CAN TRAINING -->
+    <div class="course-card">
+        <div class="course-level">ECU & CAN</div>
+        <div class="course-name">ECU & CAN Training</div>
+        <p class="course-desc">
+            ECU бүтэц, flash/EEPROM ойлголт, CAN bus үндэс, basic tuning logic.
+        </p>
+
+        <button class="details-btn" onclick="toggleDetails('ecu')">Дэлгэрэнгүй</button>
+        <div id="ecu" class="course-details">
+            <ul>
+                <li>ECU architecture (Flash, EEPROM, Bootloader, OTP) суурь ойлголт</li>
+                <li>OBD, bench, boot mode програмчлалын ялгаа</li>
+                <li>CAN bus үндэс – ID, frame, baudrate, termination</li>
+                <li>CAN sniffing & basic reverse engineering (theory level)</li>
+                <li>Stage 1 tuning logic – torque, boost, lambda, limiter ойлголт</li>
+            </ul>
+        </div>
+
+        <div class="course-price">Төлбөр: <strong>2,000,000₮</strong></div>
+    </div>
+
+    <!-- FULL PACKAGE -->
+    <div class="course-card">
+        <div class="course-level">Bundle</div>
+        <div class="course-name">Full AutoScan Package</div>
+        <p class="course-desc">
+            Electrical Level 1–3 + Diagnostics Masterclass + ECU & CAN Training
+            багц сургалт (инженерийн түвшний бүрэн суурь).
+        </p>
+
+        <button class="details-btn" onclick="toggleDetails('fullpkg')">Дэлгэрэнгүй</button>
+        <div id="fullpkg" class="course-details">
+            <ul>
+                <li>Electrical Level 1–2 бүрэн хөтөлбөр</li>
+                <li>Diagnostics Masterclass – бодит кейс дээр ажиллах модуль</li>
+                <li>ECU & CAN үндсэн ойлголт, инженерийн түвшний суурь мэдлэг</li>
+                <li>Гараж дээрх практик day – бодит машин дээр тест хийх</li>
+                <li>Certificate + дараагийн шатны advanced сургалтад давуу эрх</li>
+            </ul>
+        </div>
+
+        <div class="course-price">Төлбөр: <strong>…₮ (тохиролцоно)</strong></div>
+    </div>
+</div>
+
+            </div>
         </section>
         <!-- SERVICES -->
         <section id="services">
@@ -996,7 +1034,26 @@ form.addEventListener("submit", function (e) {
 });
 </script>
 
-                    
+                    <div class="contact-info-box">
+                        <div class="info-line">
+                            <div class="info-label">Утас</div>
+                            <div class="info-value">+976 9190 0084</div>
+                        </div>
+                        <div class="info-line">
+                            <div class="info-label">Facebook Page</div>
+                            <div class="info-value">AutoScan Service / AutoScan Training Center</div>
+                        </div>
+                        <div class="info-line">
+                            <div class="info-label">Байршил</div>
+                            <div class="info-value">Улаанбаатар хот,нарны гүүрний зүүн урд</div>
+                        </div>
+                        <div class="info-line">
+                            <div class="info-label">Цагийн хуваарь</div>
+                            <div class="info-value">Даваа–Бямба: 10:00–19:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -1007,91 +1064,25 @@ form.addEventListener("submit", function (e) {
         </div>
     </footer>
     <script>
-       const modalOverlay = document.getElementById("modalOverlay");
-const modalBox = document.getElementById("modalBox");
-const modalTitle = document.getElementById("modalTitle");
-const modalContent = document.getElementById("modalContent");
-const modalClose = document.getElementById("modalClose");
+        function toggleDetails(targetId) {
+            const box = document.getElementById(targetId);
+            if (!box) return;
 
-document.querySelectorAll(".btn-more").forEach(btn => {
-    btn.addEventListener("click", function () {
-        const course = this.dataset.course;
+            const isOpen = box.style.display === "block";
 
-        if (course === "electrical") {
-            modalTitle.textContent = "AutoScan Electrical Level 1–3";
-            modalContent.innerHTML = `
-                LEVEL 1<br>
-                • Voltage, current, resistance — суурь ойлголт<br>
-                • Мультиметр ашиглалт<br>
-                • Sensor/Actuator зарчим<br><br>
+            // div-ээ нээх/хаах
+            box.style.display = isOpen ? "none" : "block";
 
-                LEVEL 2<br>
-                • Wiring diagram унших<br>
-                • Load test, voltage drop test<br>
-                • Relay, fuse, distribution<br><br>
-
-                LEVEL 3<br>
-                • Oscilloscope ашиглах<br>
-                • Crank/Cam waveform анализ<br>
-                • Real vehicle diagnostics<br>
-            `;
+            // Тухайн div-ийн яг өмнөх товчыг олж текстийг нь солино
+            const btn = box.previousElementSibling;
+            if (btn && btn.classList.contains("details-btn")) {
+                btn.textContent = isOpen ? "Дэлгэрэнгүй" : "Хаах";
+            }
         }
-
-        if (course === "diagnostics") {
-            modalTitle.textContent = "Diagnostics Masterclass";
-            modalContent.innerHTML = `
-                • Universal + OEM software (Launch, Autel, ODIS, ISTA)<br>
-                • DTC deep analysis<br>
-                • Freeze frame, live data patterns<br>
-                • Adaptation, coding, workflow<br>
-                • Real case diagnostics<br>
-            `;
-        }
-
-        if (course === "ecu") {
-            modalTitle.textContent = "ECU & CAN Training";
-            modalContent.innerHTML = `
-                • ECU architecture — MCU, Flash, EEPROM<br>
-                • OBD/Bench programming суурь<br>
-                • CAN Bus — ID, frame, arbitration<br>
-                • Sniffing & decoding practical<br>
-                • Intro tuning — map structure<br>
-                • CAN live capture<br>
-            `;
-        }
-
-        modalOverlay.style.display = "block";
-        modalBox.style.display = "block";
-    });
-});
-
-modalClose.addEventListener("click", () => {
-    modalOverlay.style.display = "none";
-    modalBox.style.display = "none";
-});
-        
     </script>
-<!-- Modal Background -->
-<div id="modalOverlay" class="modal-overlay"></div>
 
-<!-- Modal Window -->
-<div id="modalBox" class="modal-box">
-
-    <span id="modalClose" class="modal-close">&times;</span>
-
-    <h2 id="modalTitle"></h2>
-    <p id="modalContent"></p>
-
-</div>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 
