@@ -107,7 +107,7 @@
 .masonry-gallery {
     column-count: 4;
     column-gap: 16px;
-    width: 30%;
+    width: 100%;
 }
 
 .masonry-gallery img {
