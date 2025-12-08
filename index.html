@@ -998,25 +998,27 @@ form.addEventListener("submit", function (e) {
 <div id="lightbox">
     <img id="lightbox-img" src="" alt="">
 </div>
+
 <script>
-    const galleryImages = document.querySelectorAll('.masonry-gallery img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
+const galleryImages = document.querySelectorAll('.masonry-gallery img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
 
-    galleryImages.forEach(img => {
-        img.addEventListener('click', () => {
-            lightboxImg.src = img.src;
-            lightbox.style.display = 'flex';
-        });
+galleryImages.forEach(img => {
+    img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = 'flex';
     });
+});
 
-    lightbox.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-    });
+lightbox.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
 </script>
 
 </body>
 </html>
+
 
 
 
