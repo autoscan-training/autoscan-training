@@ -147,3 +147,14 @@
     border-radius: 12px;
     box-shadow: 0 0 30px rgba(0,0,0,0.7);
 }
+.form-wrapper iframe {
+    max-width: 600px;
+    height: 750px;
+    margin: 0 auto;
+    border-radius: 12px;
+    display: block;
+}
+.form-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
