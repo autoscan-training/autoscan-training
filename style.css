@@ -148,8 +148,8 @@
     box-shadow: 0 0 30px rgba(0,0,0,0.7);
 }
 .form-wrapper iframe {
-    max-width: 600px;
-    height: 750px;
+    max-width: 300px;
+    height: 200px;
     margin: 0 auto;
     border-radius: 12px;
     display: block;
