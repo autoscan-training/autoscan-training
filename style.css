@@ -1,3 +1,17 @@
+:root {
+  --bg-dark: #05060a;
+  --bg-section: #0b1220;
+
+  /* 🔥 ШИНЭ ACCENT (pink-ийг орлох) */
+  --accent: #00e5ff;        /* Electric Cyan */
+  --accent-soft: #66f3ff;
+
+  --text-main: #f5faff;
+  --text-muted: #9aa8b5;
+
+  --border-soft: #1d2a3a;
+  --card-bg: #0f172a;
+}
 /* ---- TRAINING SECTION CUSTOM STYLES ---- */
 
 .training-grid {
