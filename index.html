@@ -684,21 +684,24 @@
             </div>
 
             <!-- DIAGNOSTICS MASTERCLASS -->
-          <div class="course-card">
-    <div class="course-level">Diagnostics</div>
-    <div class="course-name">Diagnostics Masterclass</div>
-    <p class="course-desc">
-        Оношлогооны багаж, test plan, flowchart ашиглаж “parts changer” биш
-        “problem solver” болгох оношлогооны сэтгэлгээний сургалт.
-    </p>
+            <div class="course-card">
+                <div class="course-level">Diagnostics</div>
+                <div class="course-name">Diagnostics Masterclass</div>
+                <p class="course-desc">
+                    Оношлогооны багаж, test plan, flowchart ашиглаж “parts changer” биш
+                    “problem solver” болгох оношлогооны сэтгэлгээний сургалт.
+                </p>
 
-    <button class="details-btn" onclick="location.href='https://training.autoscan.mn/diagnostics'">
-        Дэлгэрэнгүй
-    </button>
-
-    <div class="course-price">Төлбөр: <strong>1,500,000₮</strong></div>
-</div>
-
+                <button class="details-btn" onclick="toggleDetails('diag')">Дэлгэрэнгүй</button>
+                <div id="diag" class="course-details">
+                    <ul>
+                        <li>OEM diagnostic thinking – guided functions, test plan</li>
+                        <li>DTC-ийг шууд эд анги болгож харахгүй логик сэтгэлгээ</li>
+                        <li>Live data / measuring blocks анализ, харьцуулалт</li>
+                        <li>Fuel trim, lambda, boost, temp, pressure data тайлж унших</li>
+                        <li>3–5 бодит кейс дээр үндэслэсэн full case study</li>
+                    </ul>
+                </div>
 
                 <div class="course-price">Төлбөр: <strong>1,500,000₮</strong></div>
             </div>
@@ -1035,8 +1038,6 @@ lightbox.addEventListener('click', () => {
 
 </body>
 </html>
-
-
 
 
 
