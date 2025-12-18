@@ -175,3 +175,11 @@
     border-radius: 10px;
     border: none;
 }
+@media (max-width: 768px) {
+    nav a {
+        font-size: 14px;
+        padding: 6px 12px;
+        margin: 0 4px;
+    }
+}
+
